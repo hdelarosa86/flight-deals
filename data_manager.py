@@ -16,3 +16,14 @@ class DataManager:
         self.flight_data_list = data['prices']
 
         return self.flight_data_list
+
+    def put_flight_data(self):
+
+        for city in self.flight_data_list:
+            new_data = {
+                'price': {
+                    'iataCode': city['iataCode']
+                }
+            }
+            response = requests.put(f'{SHEETY_ENDPOINT}/{city["id"]}', auth=BASIC_AUTH, json=new_data)
+            print(response.json())
