@@ -1,6 +1,5 @@
 from data_manager import DataManager
 from flight_search import FlightSearch
-from pprint import pprint
 
 data_manager = DataManager()
 
@@ -13,6 +12,3 @@ for row in sheet_data:
         row['iataCode'] = destination_code
 data_manager.flight_data_list = sheet_data
 data_manager.put_flight_data()
-
-
-

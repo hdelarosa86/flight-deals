@@ -1,6 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 import os
+
 SHEETY_ENDPOINT = os.environ['SHEETY_ENDPOINT']
 BASIC_AUTH = HTTPBasicAuth(os.environ['AUTH_USERNAME'], os.environ['AUTH_PASS'])
 
