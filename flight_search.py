@@ -63,4 +63,4 @@ class FlightSearch:
         )
 
         print(f'{flight_data.destination_city}: ${flight_data.price}')
-        return flight_data.price
+        return flight_data
