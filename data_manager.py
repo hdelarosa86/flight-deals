@@ -19,7 +19,6 @@ class DataManager:
         return self.flight_data_list
 
     def put_flight_data(self):
-
         for city in self.flight_data_list:
             new_data = {
                 'price': {
