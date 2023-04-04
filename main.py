@@ -12,15 +12,15 @@ for row in sheet_data:
         row['iataCode'] = destination_code
 
 data_manager.flight_data_list = sheet_data
-data_manager.put_flight_data()
 
 for destination in sheet_data:
-    destination_data = flight_search.search_for_flights('NYC', destination['iataCode'])
+    destination_price = flight_search.search_for_flights('NYC', destination['iataCode'])
 
-    if destination_data is None:
-        destination['price'] = 'N/A'
+    if destination_price is not None:
+        destination['lowestPrice'] = destination_price
     else:
-        destination['price'] = destination_data['price']
+        destination['lowestPrice'] = 'N/A'
+
 
 data_manager.flight_data_list = sheet_data
 data_manager.put_flight_data()
