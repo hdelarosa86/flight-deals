@@ -20,8 +20,8 @@ class FlightSearch:
         self.date_to = (self.tomorrow_date + timedelta(180)).strftime('%d/%m/%Y')
         self.min_stay = 7
         self.max_stay = 28
-
     #This class is responsible for talking to the Flight Search API.
+
     def get_destination_code(self, city_name):
         query = {"term": city_name, "location_types": "city"}
         response = requests.get(f'{TEQUILA_ENDPOINT}locations/query', headers=headers, params=query)
@@ -63,4 +63,4 @@ class FlightSearch:
         )
 
         print(f'{flight_data.destination_city}: ${flight_data.price}')
-        return flight_data
+        return flight_data.price
